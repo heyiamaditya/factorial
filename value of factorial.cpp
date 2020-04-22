@@ -1,19 +1,23 @@
-#include <iostream>
-using namespace std;
-
+#include<iostream>
+int find_factorial(int);
 int main()
 {
-    unsigned int n;
-    unsigned long long factorial = 1;
+   int num, fact;
+ 
+   printf("\nEnter any integer number:");
+   scanf("%d",&num);
+ 
+  
+   fact =find_factorial(num);
+ printf("\nfactorial of %d is: %d",num, fact);
+   return 0;
+}
+int find_factorial(int n)
+{
 
-    cout << "Enter a positive integer: ";
-    cin >> n;
-
-    for(int i = 1; i <=n; ++i)
-    {
-        factorial *= i;
-    }
-
-    cout << "Factorial of " << n << " = " << factorial;    
-    return 0;
+   if(n==0)
+      return(1);
+ 
+   //Function calling itself: recursion
+   return(n*find_factorial(n-1));
 }
